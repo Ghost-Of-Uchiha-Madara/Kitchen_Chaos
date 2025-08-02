@@ -924,6 +924,7 @@ MonoBehaviour:
   musicButton: {fileID: 1015830701}
   soundEffectsText: {fileID: 115388328}
   musicText: {fileID: 1587541759}
+  closeButton: {fileID: 204408383}
 --- !u!1 &241551200 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3294758251327466535, guid: 1c5dda3c7cd3cf742afcade5419faeab,
