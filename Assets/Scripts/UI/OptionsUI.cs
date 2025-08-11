@@ -107,7 +107,7 @@ public class OptionsUI : MonoBehaviour
 
         gamepadPauseButton.onClick.AddListener(() =>
         {
-            RebindBinding(GameInput.Binding.Gamepad_Pasue);
+            RebindBinding(GameInput.Binding.Gamepad_Pause);
         });
     }
 
@@ -129,7 +129,7 @@ public class OptionsUI : MonoBehaviour
         soundEffectsText.text = "Sound Effects : " + Mathf.Round(SoundManager.Instance.GetVolume() * 10f);
         musicText.text = "Music : " + Mathf.Round(MusicManager.Instance.GetVolume() * 10f);
 
-        moveUpText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Move_Up);
+        
         moveDownText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Move_Down);
         moveLeftText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Move_Left);
         moveRightText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Move_Right);
@@ -138,7 +138,7 @@ public class OptionsUI : MonoBehaviour
         pauseText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Pause);
         gamepadInteractText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Gamepad_Interact);
         gamepadInteractAlternateText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Gamepad_InteractAlternate);
-        gamepadPauseText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Gamepad_Pasue);
+        gamepadPauseText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Gamepad_Pause);
            
     }
 

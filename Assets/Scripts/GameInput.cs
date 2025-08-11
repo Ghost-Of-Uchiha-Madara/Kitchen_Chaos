@@ -11,6 +11,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateEvent;
     public event EventHandler OnPauseAction;
+    public event EventHandler OnBindingRebind;
 
     public static GameInput Instance {  get; private set; }
 
@@ -25,7 +26,7 @@ public class GameInput : MonoBehaviour
         Pause,
         Gamepad_Interact,
         Gamepad_InteractAlternate,
-        Gamepad_Pasue
+        Gamepad_Pause
     }
     private PlayerInputAction playerInputActions;
 
@@ -103,7 +104,7 @@ public class GameInput : MonoBehaviour
                 return playerInputActions.Player.Interact.bindings[1].ToDisplayString();
             case Binding.Gamepad_InteractAlternate:
                 return playerInputActions.Player.InteractAlternate.bindings[1].ToDisplayString();
-            case Binding.Gamepad_Pasue:
+            case Binding.Gamepad_Pause:
                 return playerInputActions.Player.Pause.bindings[1].ToDisplayString();
 
         }
@@ -155,7 +156,7 @@ public class GameInput : MonoBehaviour
                 inputAction = playerInputActions.Player.InteractAlternate;
                 bindingIndex = 1;
                 break;
-            case Binding.Gamepad_Pasue:
+            case Binding.Gamepad_Pause:
                 inputAction = playerInputActions.Player.Pause;
                 bindingIndex = 1;
                 break;
@@ -170,6 +171,8 @@ public class GameInput : MonoBehaviour
 
                 PlayerPrefs.SetString(PLAYER_PREFS_BINDINGS, playerInputActions.SaveBindingOverridesAsJson());
                 PlayerPrefs.Save();
+
+                OnBindingRebind?.Invoke(this, EventArgs.Empty);
             })
             .Start();
     }
